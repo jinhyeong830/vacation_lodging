@@ -6,83 +6,251 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vacation plan?</title>
     <style>
-      
+        /*기본선택자-전체, 태그, 클래스, 아이디*/
+        *{
+            font-family: "강한공군체";          
+        }
+        body{
+            margin-bottom:50px;
+        }     
         th,img{
             width:200px;
         }
+        td,th{
+            border:0.5px solid rgb(10, 10, 154);
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+
+        span#or{
+            font-size: 5px;
+            font-weight: bold;
+        }
+        span.underline{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .title{
+            display: inline-block;
+            color:#242F9B;
+        }
+        p.title{
+            background-color: lemonchiffon;
+        }
+        #lodging{
+            text-align: center;
+        }
+
+        #lodging_list{
+            border:2px solid skyblue;
+            margin:auto;           
+        }
+
+        #matzip{
+            text-align: left;
+
+        }
+
+        /*일치,직계자손, 후손, 인접형제, 일반형제*/
+
+        tr>.location{
+            font-size:20px;
+            color:dodgerblue;
+        }
+
+        tr .weekdays+li{
+            color:red;
+        }
+
+        #matzip li#m_sokcho li:nth-child(3)~li{
+            color:darkgray;
+        }
+
+        
+        /*nth-child,first-child,last-child*/
+
+        #matzip li#m_sokcho li:nth-child(3)~li::after{
+            content: "(cafe/bakery)";
+        }
+        #matzip ul>.location{
+            color:#9BA3EB;
+        }
+        #matzip ul>.location:first-child{
+            color:#646FD4;
+        }
+        #matzip ul>.location:last-child{
+            color:#DBDFFD;
+        }
+        #matzip ul>.location {
+            font-size:20px;
+        }
+        #matzip ul ol>li{
+            color:black;
+            font-size:15px;
+        }
+        
+
+        /*after, before*/
+        /*active,hover,focus*/  
+         /*속성선택자*/    
+        a>strong:active::before{
+            content:"☆"
+        }
+
+        a strong:hover::after{
+            content:"★"
+        }
+        a strong:hover{
+            background-color: dodgerblue;
+            color:white;
+        }
+        a strong:active{
+            background-color: coral;
+        }
+              
+        [type="text"]:focus{
+            background-color: #DBDFFD;
+        }
+        
+        #lodging tr:not(:nth-child(odd)){
+            color:gray;
+        }
+
     </style>
 </head>
 <body>
-    <h1> 여름 휴가 숙소 </h1>
-    <p><i>이미지 클릭시 숙소 사이트로 이동</i></p>
-    <table border="1">
-        <tr>
-            <th>location</th>
-            <th>name</th>
-            <th>type</th>
-            <th>price</th>
-        </tr>
+    <div id="lodging">
+        <h1 class="title"> 여름 휴가 숙소 </h1>
+        <br>
+        <p class="title">
+         <i><span class="underline">이미지 </span> <span id="or">OR</span> 
+            <span class="underline">숙소이름</span> 클릭시 숙소 사이트로 이동</i>
+        </p>
+
+        <table id="lodging_list">
+            <tr>
+                <th>location</th>
+                <th>name</th>
+                <th>type</th>
+                <th>price</th>
+            </tr>
     
-        <tr>
-            <td rowspan="2">속초 </td>
-            <td><a href="http://moreve.kr/" target="_blank">
-                <img src="https://post-phinf.pstatic.net/MjAyMjAyMTZfMTAz/MDAxNjQ1MDEyMzA3NzA0.bnjY8Cl9jq7C80I_X9VwPO4GVbXo4-j-WYuzHQ5t1jkg.oRoFxv2EIqlu7W1pivePOaxwYyMt7dvHjwp7rggECV0g.JPEG/2.jpeg?type=w1200" alt="숙소_모레브_사진"
-                /> </a><br>
-                <strong>모레브<strong>
-            </td>
-            <td>풀빌라</td>
-            <td> B402호(성수기)<br>
-                [2인기준]
-                <ul>
-                    <li>주중: 329,000 won</li>
-                    <li>주말: 399,000 won</li>
-                </ul>
-            </td>
-        </tr>
-
-        <tr>
-            <td><a href="http://www.pampasresort.co.kr/" target="_blank"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAxMjNfNTgg%2FMDAxNjQyOTE1NTA2Mzgw.usMjsAQlVAeJHQyuhzDiNrkwoEn6ymN9xi0OS-fQ1PIg.3N92chY5yP5kW6OECkQk9bSBEB2qnCtzidlA4K64yvIg.JPEG.vermouth777%2FIMG_4009.jpg&type=sc960_832" alt="숙소_팜파스리조트_사진" 
-                /></a><br>
-                <strong>팜파스 리조트</strong>
-            </td>
-            <td>리조트</td>
-            <td>골드클래스A(비수기)<br>
-                [4인기준]
-                <ul>
-                    <li>주중 : 366,000 won</li>
-                    <li>주말 : 416,000 won</li>
-                </ul>
-                <pre>※성수기는 별도 문의</pre></td>
-            
-        </tr>
-
-        <tr>
-            <td>여수</td>
-            <td><a href="https://www.sonohotelsresorts.com/yeosu" target="_blank"><img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200904_147%2F1599200046031UiQEA_JPEG%2FU2V0icjn8Wlbf-EMvgHzCAdA.JPG.jpg" alt="숙소_소노캄여수_사진" 
-                /></a>
-                <strong>소노캄 여수</strong></td>
-            <td>호텔</td>
-            <td>디럭스/슈퍼리어 테마<br>
-                [2인기준]
-                <ul> 
-                    <li>450,000 won</li>
-                </ul>
+            <tr>
+                <td rowspan="2" class="location">속초 </td>
+                <td><a href="http://moreve.kr/" target="_blank">
+                        <img src="https://post-phinf.pstatic.net/MjAyMjAyMTZfMTAz/MDAxNjQ1MDEyMzA3NzA0.bnjY8Cl9jq7C80I_X9VwPO4GVbXo4-j-WYuzHQ5t1jkg.oRoFxv2EIqlu7W1pivePOaxwYyMt7dvHjwp7rggECV0g.JPEG/2.jpeg?type=w1200" alt="숙소_모레브_사진"
+                        /> 
+                        <br>
+                        <strong>모레브<strong>
+                    </a>
                 </td>
-        </tr>
-
-        <tr>
-            <td>포천</td>
-            <td><a href="https://camp4pm.modoo.at/" target="_blank"><img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210316_181%2F1615889940906JODyL_JPEG%2F03119896_%25282%2529.jpg" alt="숙소_캠프오후네시_사진" 
-                /></a>
-                <strong>캠프오후네시</strong></td>
-            <td>카라반·글램핑</td>
-            <td>산뜻산뜻 민트(여름)<br>
-                [2인기준]
-                <ul><li>주중 : 220,000 won</li><li>주말 : 260,000 won</li></ul>
+                <td class="type">풀빌라</td>
+                <td> B402호(성수기)
+                    <br>[2인기준]
+                    <ul>
+                        <li class="weekdays">주중: 329,000 won</li>
+                        <li>주말: 399,000 won</li>
+                    </ul>
                 </td>
-        </tr>
-    </table>
+            </tr>
 
-    
+            <tr>
+                <td><a href="http://www.pampasresort.co.kr/" target="_blank">
+                        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAxMjNfNTgg%2FMDAxNjQyOTE1NTA2Mzgw.usMjsAQlVAeJHQyuhzDiNrkwoEn6ymN9xi0OS-fQ1PIg.3N92chY5yP5kW6OECkQk9bSBEB2qnCtzidlA4K64yvIg.JPEG.vermouth777%2FIMG_4009.jpg&type=sc960_832" alt="숙소_팜파스리조트_사진" 
+                        />
+                        <br>
+                        <strong>팜파스 리조트</strong>
+                    </a>
+                </td>
+                <td class="type" id="resort">리조트</td>
+                <td>골드클래스A(비수기)
+                    <br>[4인기준]
+                    <ul>
+                        <li class="weekdays">주중 : 366,000 won</li>
+                        <li>주말 : 416,000 won</li>
+                    </ul>
+                    <pre>※성수기는 별도 문의</pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="location">여수</td>
+                <td><a href="https://www.sonohotelsresorts.com/yeosu" target="_blank"><img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200904_147%2F1599200046031UiQEA_JPEG%2FU2V0icjn8Wlbf-EMvgHzCAdA.JPG.jpg" alt="숙소_소노캄여수_사진" 
+                    />
+                        <strong>소노캄 여수</strong>
+                    </a>
+                </td>
+                <td class="type">호텔</td>
+                <td>디럭스/슈퍼리어 테마
+                    <br>[2인기준]
+                    <ul> 
+                        <li>450,000 won</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="location">포천</td>
+                <td><a href="https://camp4pm.modoo.at/" target="_blank"><img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210316_181%2F1615889940906JODyL_JPEG%2F03119896_%25282%2529.jpg" alt="숙소_캠프오후네시_사진" 
+                    />
+                        <strong>캠프오후네시</strong>
+                    </a>
+                </td>
+                <td class="type">카라반·글램핑</td>
+                <td>산뜻산뜻 민트(여름)
+                    <br>[2인기준]
+                    <ul>
+                        <li class="weekdays">주중 : 220,000 won</li>
+                        <li>주말 : 260,000 won</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+
+    <div id="matzip">
+        <h1 class="title" id="matzip_title"> 맛집리스트</h1>
+        <ul type="square">
+            <li class="location" id="m_sokcho">속초
+                <ol>
+                    <li>봉포머구리</li>
+                    <li>코다리 냉면</li>
+                    <li>만석 닭강정</li>
+                    <li>봉브레드</li>
+                    <li>라또래요</li>
+                    <li>도리스 파티세리</li>
+                </ol>
+            </li>
+
+            <li class="location">포천
+                <ol>
+                    <li>송영선할머니갈비찜</li>
+                    <li>뜰안에 밥상</li>
+                    <li>프롬이태리</li>
+                </ol>
+            </li>
+            <li class="location">여수
+                <ol>
+                    <li>로타리식당</li>
+                    <li>바다김밥</li>
+                    <li>좌수영 바게트버거</li>
+                    <li>지지전골마당</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <br>
+    <hr>
+    <div>
+        <h3>가고 싶은 지역의 숙소를 입력하세요!</h3>
+        <input type="text" placeholder="숙소명 입력"/>
+        <input type="button" value="go!" />
+    </div>
+    <br>
+   
 </body>
 </html>
